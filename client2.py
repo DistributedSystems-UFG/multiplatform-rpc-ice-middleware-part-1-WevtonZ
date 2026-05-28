@@ -11,8 +11,19 @@ if (not printer1) or (not printer2):
     raise RuntimeError("Invalid proxy")
 
 rep = printer1.printString("Hello World from printer1!")
-print(rep)
-rep = printer2.printString("Hello World from printer2!")
-print(rep)
+print("printer1.printString:", rep)
 
-communicator.waitForShutdown()
+rep = printer1.concat("Distributed ", "Systems")
+print("printer1.concat:", rep)
+
+rep = printer1.contains("Distributed Systems", "Systems")
+print("printer1.contains:", rep)
+
+rep = printer2.printString("Hello World from printer2!")
+print("printer2.printString:", rep)
+
+rep = printer2.concat("ICE ", "Middleware")
+print("printer2.concat:", rep)
+
+rep = printer2.contains("ICE Middleware", "Java")
+print("printer2.contains:", rep)

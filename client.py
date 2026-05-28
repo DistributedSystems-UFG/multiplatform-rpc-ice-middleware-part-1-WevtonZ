@@ -8,4 +8,14 @@ printer = Demo.PrinterPrx.checkedCast(base)
 if not printer:
     raise RuntimeError("Invalid proxy")
 
-printer.printString("Hello World!")
+rep = printer.printString("Hello World!")
+print("printString returned:", rep)
+
+rep = printer.concat("Hello ", "World!")
+print("concat returned:", rep)
+
+rep = printer.contains("Hello World!", "World")
+print("contains returned:", rep)
+
+rep = printer.contains("Hello World!", "Python")
+print("contains returned:", rep)
